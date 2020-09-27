@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/transurb"/>
+        
+
+    <item
+        android:width="716dp"
+        android:height="202dp"
+     android:top="550dp"
+     
+        android:drawable="@mipmap/transurb"
+        android:gravity="center"
+        />
+
+
+</layer-list>

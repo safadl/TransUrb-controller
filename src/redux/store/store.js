@@ -1,0 +1,3 @@
+// example of store.js
+
+
