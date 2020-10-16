@@ -1,29 +1,14 @@
 
-/// example of actions.js
+export const CHANGE_NAME='CHANGE_NAME';
+export const CHANGE_SURNAME='CHANGE_SURNAME'
+export const CHANGE_TYPEAB='CHANGE_TYPEAB'
+export const CHANGE_EMAIL='EMAIL'
+export const CHANGE_TEL='CHANGE_TEL'
+export const CHANGE_DATE='CHANGE_DATE'
+export const CHANGE_LOCATION='CHANGE_LOCATION'
+export const CHANGE_ETAB='CHANGE_ETAB'
+export const CHANGE_IDENTIF='CHANGE_IDENTIF'
+export const CHANGE_ATTESTATION='CHANGE_ATTESTATION'
+export const CHANGE_PHOTO='CHANGE_PHOTO'
 
 
-//action types
-
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-
-//other constants 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-
-//action creators
-export function addTodo(text) {
-  return { type: ADD_TODO, text }
-}
-
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index }
-}
-
-export function setVisibilityFilter(filter) {
-  return { type: SET_VISIBILITY_FILTER, filter }
-}

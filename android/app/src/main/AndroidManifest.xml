@@ -1,18 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.transurb">
+  package="com.transurbu"
+  xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.CAMERA" />
  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+      >
           <activity
           android:name=".SplashActivity"
           android:theme="@style/SplashTheme"
@@ -35,6 +42,7 @@
         </intent-filter> -->
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      
     </application>
 
 </manifest>

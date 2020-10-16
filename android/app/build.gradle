@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.transurb"
+        applicationId "com.transurbu"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy 'react-native-camera', 'general'
@@ -191,8 +191,13 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation project(':react-native-splash-screen')
     implementation 'com.android.support:multidex:1.0.3'
+    implementation project(':@react-native-community-picker')
+    implementation project(':react-native-background-upload')
+   implementation project(':react-native-view-overflow')
 
 
+
+ 
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

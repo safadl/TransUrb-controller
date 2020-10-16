@@ -6,10 +6,11 @@
         
 
     <item
-        android:width="420dp"
-        android:height="300dp"
-        android:drawable="@mipmap/launch_screen"
-        android:gravity="bottom|center" 
+        android:width="500dp"
+        android:height="500dp"
+        android:drawable="@mipmap/splashu"
+        android:gravity="fill" 
+        
         />
 
 

@@ -4,10 +4,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_splash"
 
+    android:orientation="vertical"/>
 
-    android:orientation="vertical">
-
-    <ImageView
+    <!-- <ImageView
         android:layout_width="350dp"
         android:layout_height="350dp"
 
@@ -16,10 +15,10 @@
         android:baselineAlignBottom="false"
         android:orientation="vertical"
         android:scaleType="fitCenter"
-        android:src="@drawable/icon"/>
+        android:src="@drawable/icon"/> -->
     
 
 
-</LinearLayout>
+
 
     

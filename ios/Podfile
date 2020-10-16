@@ -12,6 +12,12 @@ target 'Transurb' do
 
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'react-native-background-upload', :path => '../node_modules/react-native-background-upload'
+
+  pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
+
   target 'TransurbTests' do
     inherit! :complete
     # Pods for testing

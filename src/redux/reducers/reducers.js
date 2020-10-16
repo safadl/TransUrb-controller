@@ -1,54 +1,47 @@
+import {CHANGE_NAME,CHANGE_TYPEAB,CHANGE_ATTESTATION,CHANGE_DATE,
+  CHANGE_ETAB,CHANGE_IDENTIF,CHANGE_LOCATION,
+  CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL} from '../actions/actions';
 
-////// example of reducers.js
+const initialState={
+  name:"John",
+  surname:"Doe",
+  typeab:"Carte MOKI",
+  attest:"",
+  date:"21-09-2020",
+  etab:"",
+  identif:"CIN",
+  location:"",
+  photo:null,
+  tel:"",
+  email:""
+};
 
+export const mainReducer=(state=initialState,action)=>{
+switch (action.type) {
+  case CHANGE_NAME:
+    return {...state,name:action.name}
+ case CHANGE_SURNAME:
+   return {...state,surname:action.surname}
+   case CHANGE_TYPEAB:
+     return {...state,typeab:action.typeab}
+   case CHANGE_EMAIL:
+     return {...state,email:action.email}
+  case CHANGE_ETAB:
+    return {...state,etab:action.etab}
+  case CHANGE_IDENTIF:
+    return {...state,identif:action.identif}
+  case CHANGE_PHOTO:
+    return {...state,photo:action.photo}
+  case CHANGE_TEL:
+    return {...state,tel:action.tel}
+  case CHANGE_DATE:
+    return {...state,date:action.date}
+  case CHANGE_ATTESTATION:
+    return {...state,attest:action.attest}
+  case CHANGE_LOCATION:
+    return {...state,location:action.location}
 
-// reducers update the state according to those actions
-
-import { combineReducers } from 'redux'
-import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  SET_VISIBILITY_FILTER,
-  VisibilityFilters
-} from '..actions/actions'
-const { SHOW_ALL } = VisibilityFilters
-
-function visibilityFilter(state = SHOW_ALL, action) {
-  switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter
-    default:
-      return state
-  }
+  default:
+    return state
 }
-
-function todos(state = [], action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ]
-    case TOGGLE_TODO:
-      return state.map((todo, index) => {
-        if (index === action.index) {
-          return Object.assign({}, todo, {
-            completed: !todo.completed
-          })
-        }
-        return todo
-      })
-    default:
-      return state
-  }
 }
-
-const todoApp = combineReducers({
-  visibilityFilter,
-  todos
-})
-
-export default todoApp
