@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
- import {Text,Image,View, Dimensions,ScrollView, ImageBackground,Button,TouchableOpacity} from 'react-native'
+ import {Text,Image,View, Dimensions,ScrollView,StatusBar, ImageBackground,Button,TouchableOpacity} from 'react-native'
  import {TextInput,Icon} from 'react-native-paper'
  import styles from '../styles/component_styles/styles';
 
@@ -11,9 +11,11 @@ function Connexion({navigation}){
     return(
         <ScrollView style={{backgroundColor:'white',flex:1}} contentContainerStyle={{justifyContent:'center'}}>
         <View><Image source={require('../assets/images/backgroundc.png')} style={{width:Dimensions.get('window').width, height:Dimensions.get('window').height/2}} />
+       
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true}/>
         </View>
         <Text style={{fontSize:30, color:'#195581', alignSelf:'center'}}>Connexion</Text>
-<Text>Email</Text>
+<View><Text style={{color:'#195581',marginLeft:15,}}>Email</Text>
       <TextInput
     label="Email"
     value={text}
@@ -28,7 +30,9 @@ theme={{ colors: { primary: '#1778BD',underlineColor:'transparent',text:'#195581
 
 
 />
-<Text>Mot de passe</Text>
+</View>
+<View style={{marginTop:25}}>
+<Text style={{color:'#195581',marginLeft:15,}}>Mot de passe</Text>
 <TextInput
     label="Mot de passe"
     value={texte}
@@ -44,11 +48,12 @@ secureTextEntry={visible? false : true}
     style={{marginLeft:15, marginRight:15,height:70}}
 
 />
+</View>
 {/* <View style={{width:Dimensions.get('screen').width/2, alignSelf:'center', marginTop:25, borderRadius:50}}>
 <Button title="Connexion" value="login"color="#168F62"  />
 </View> */}
 <TouchableOpacity onPress={()=>navigation.navigate('accueil')} style={{width:"80%", alignSelf:'center',justifyContent:'center', marginTop:40,height:65,marginBottom:30, borderRadius:8, backgroundColor:"#168F62"}} >
-    <Text style={{alignSelf:'center',fontSize:30}} >CONNEXION</Text>
+    <Text style={{alignSelf:'center',fontSize:30,color:'white'}} >CONNEXION</Text>
 </TouchableOpacity>
 
         </ScrollView>

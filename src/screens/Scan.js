@@ -15,6 +15,8 @@ import React, { Component } from 'react';
   import { RNCamera } from 'react-native-camera';
   import Icon from "react-native-vector-icons/MaterialIcons";
   import * as Animatable from "react-native-animatable"
+  import AsyncStorage from '@react-native-community/async-storage'
+
 class Scan extends React.Component{
     constructor(props){
         super(props)
@@ -30,15 +32,55 @@ class Scan extends React.Component{
            
             console.log("values")     
           }
+
     onSuccess = (e) => {
-      //  this._storeData(e)
-          Linking.openURL(e.data).catch(err =>
-            console.error('An error occured', err),
-            alert('Unable to open link.')
-            
-        )
-      
+   
+      // Linking.openURL(e.data)
+      if(e.data!==null){
+      alert("Scanned code value is : " + e.data+ "Barcode type is" + e.type)
+       if(e.type=='QR_CODE'){
+        this._storeData(e)
+
+       }
+       else {
+         this._storeBar(e)
+       }
+      }
+      else{
+        alert('Unable to scan ')
+      }
       };
+
+      _storeBar = async (e) => {
+        try{
+     
+          
+          let oldValues= await AsyncStorage.getItem('barcodes')
+          this.state.values=JSON.parse(oldValues)
+          
+          if(oldValues!==null){
+            this.setState({
+              values: [...this.state.values,e.data]
+            })
+          }
+          else{
+            this.setState({
+              values:[this.state.values,e.data]
+            })
+          }
+    
+         AsyncStorage.setItem('barcodes',JSON.stringify(this.state.values));
+         console.log('my data stored is : '+this.state.values)
+         
+        }
+        catch (error) {
+        
+        
+        alert("error : "+e.data+error)  
+    
+        }}
+
+
       changeCamera=()=>{
         if(this.state.Mycamera==='back')
       this.setState({
@@ -50,6 +92,8 @@ class Scan extends React.Component{
         })
       }
         }
+
+
       makeSlideOutTranslation(translationType, fromValue) {
         return {
           from: {
@@ -60,6 +104,33 @@ class Scan extends React.Component{
           }
         };
       }
+
+      
+      _storeData = async (e) => {
+        try{
+        
+          
+          let oldValues= await AsyncStorage.getItem('qrcodes')
+          
+          this.state.values=JSON.parse(oldValues)
+          if(oldValues!==null){
+            this.setState({
+              values: [...this.state.values,e.data],
+              
+            })
+          
+          }else{
+            this.setState({
+              values:[this.state.values,e.data]
+            })
+          }
+          AsyncStorage.setItem('qrcodes',JSON.stringify(this.state.values));
+         console.log('my data stored is : '+this.state.values)
+        
+        }
+        catch (error) {
+        alert("error : "+e.data+error)  
+        }}
       render(){
 
       
@@ -72,10 +143,12 @@ return(
 
     <Text style={{alignSelf:'center',fontFamily:'Helvetica Neue', color:'#168F62',fontSize:25, paddingTop:100}}>Analyse d'abonnement</Text>
     <Text style={{alignSelf:'center',fontFamily:'Helvetica Neue', color:'#168F62',fontSize:18, marginBottom:15}}>Placez le code QR à l’intérieur de la zone</Text>
-    
+    <TouchableOpacity onPress={()=>this.props.navigation.navigate('History')} style={{justifyContent:'center',margin:10,backgroundColor:'#168F62',width:150,height:50,alignSelf:'center',borderRadius:30 }}>
+      <Text style={{color:'white',alignSelf:'center',fontSize:15,fontWeight:'bold'}}>Voir historique</Text>
+    </TouchableOpacity>
+
     <QRCodeScanner
  
-
         fadeIn={true}
         onRead={this.onSuccess.bind(this)}
          

@@ -23,8 +23,8 @@ class NonCUser extends React.Component{
      </View>
      <TouchableOpacity onPress={()=>this.props.navigation.navigate('Scan')} style={{width:360,alignItems:'center',alignSelf:'center',flexDirection:'row',justifyContent:'center', marginTop:20,height:90,marginBottom:30, borderRadius:6, backgroundColor:"#168F62"}} >
      
-     <IonIcons name="scan" size={35} style={{marginRight:5}} />
-     <Text style={{alignSelf:'center',fontSize:25}} >SCANNER LA CARTE</Text>
+     <IonIcons name="scan" size={35} style={{marginRight:5}} color="white" />
+     <Text style={{alignSelf:'center',fontSize:25,color:'white'}} >SCANNER LA CARTE</Text>
   </TouchableOpacity> 
    </ScrollView>
 
