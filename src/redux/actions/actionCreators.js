@@ -1,7 +1,7 @@
 import  {
     CHANGE_NAME,CHANGE_TYPEAB,CHANGE_ATTESTATION,CHANGE_DATE,
     CHANGE_ETAB,CHANGE_IDENTIF,CHANGE_LOCATION,
-    CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL
+    CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL,CHANGE_METHOD,CHANGE_REF
 } from './actions'
 
 export const change_name=(value)=>({
@@ -47,4 +47,12 @@ export const change_tel=(value)=>({
 export const change_email=(value)=>({
     type:CHANGE_EMAIL,
     email:value
+})
+export const change_method=(value)=>({
+    type:CHANGE_METHOD,
+    method:value
+})
+export const change_ref=(value)=>({
+    type:CHANGE_REF,
+    ref:value
 })

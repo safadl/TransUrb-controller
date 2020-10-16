@@ -153,7 +153,7 @@ vos données.</Text>
       </Modal>
     </Portal>
   </Provider>
- 
+
       </ScrollView>
 )
  }

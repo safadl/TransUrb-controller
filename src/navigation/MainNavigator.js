@@ -33,7 +33,7 @@ const stack=createStackNavigator();
 
 function GlobalStack({navigation}){
     return(
-        <stack.Navigator initialRouteName="Infos2" screenOptions={{
+        <stack.Navigator initialRouteName="ajoutRef" screenOptions={{
  headerShown:false,
     headerStyle: {
       backgroundColor: "transparent"

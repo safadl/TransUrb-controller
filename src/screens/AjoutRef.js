@@ -1,23 +1,18 @@
 import React, { Component, useState } from 'react';
  import {Text,Image,View, Dimensions,ScrollView, ImageBackground,Button,TouchableOpacity,StatusBar,TextInput, Platform,StyleSheet} from 'react-native'
- //import styles from '../styles/component_styles/styles';
- import IonIcons from 'react-native-vector-icons/Ionicons';
- import LinearGradient from 'react-native-linear-gradient';
- import PhoneInput from 'react-native-phone-input'
- import {Picker} from '@react-native-community/picker';
 
- import { RadioButton,Card, Title, Paragraph, Modal, Portal, Provider} from 'react-native-paper';
+import { change_ref } from '../redux/actions/actionCreators';
 
-// import Icon from 'react-native-vector-icons/MaterialIcons'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {useSelector,useDispatch} from 'react-redux'
 
 
 
 
 function AjoutRef(){
 
-
+  const data=useSelector((state)=>state);
+  const dispatch=useDispatch()
+  const {ref}=data;
 
 return(
     <ScrollView style={{backgroundColor:'white'}} > 
@@ -35,7 +30,7 @@ return(
         </Text>
         </View>
 
-       <TextInput  style={{alignSelf:'center',marginTop:30,width:Dimensions.get('window').width*0.72, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
+       <TextInput secureTextEntry={true} value={ref} onChangeText={(value)=>dispatch(change_ref(value))}  style={{alignSelf:'center',marginTop:30,width:Dimensions.get('window').width*0.72, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
        <TouchableOpacity>
        <Text style={{fontSize:12,color:'#0C3C5F',textAlign:'right',margin:16}} >Référence oublié ?</Text>
        </TouchableOpacity>

@@ -5,11 +5,13 @@ import React, { Component, useState } from 'react';
  import LinearGradient from 'react-native-linear-gradient';
  import PhoneInput from 'react-native-phone-input'
  import {Picker} from '@react-native-community/picker';
+ import {useSelector,useDispatch} from 'react-redux'
 
  import { RadioButton,Card, Title, Paragraph, Modal, Portal, Provider} from 'react-native-paper';
 
 // import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { change_method } from '../redux/actions/actionCreators';
 
 
 
@@ -23,7 +25,9 @@ function InfosPerso3({navigation}){
      const [visible, setVisible] = React.useState(false);
      const [Isvisible, setIsVisible] = React.useState(false);
      const [visibleM, setMVisible] = React.useState(false);
-
+     const data=useSelector((state)=>state);
+     const dispatch=useDispatch()
+     const {method}=data;
   const showModal = () => setVisible(true);
   const showIModal = () => setIsVisible(true);
   const showModalM = () => setMVisible(true);
@@ -64,17 +68,16 @@ return(
 />
 
 <View style={{marginTop:50,margin:15}}>
-    <RadioButton.Group onValueChange={value => setValue(value)} value={value} >
+    <RadioButton.Group onValueChange={value => dispatch(change_method(value))} value={method} >
       <View style={{flexDirection:'row'}}>
-        <RadioButton value="mobile" color='#195581'  />
-        <Text style={{color:value=='mobile'?'#195581' :'#9B9B9B' ,fontSize:20,marginTop:3}}>PAIEMENT MOBILE</Text>
+        <RadioButton value="PAIEMENT MOBILE" color='#195581'  />
+        <Text style={{color:value=='PAIEMENT MOBILE'?'#195581' :'#9B9B9B' ,fontSize:20,marginTop:3}}>PAIEMENT MOBILE</Text>
 
       </View>
       <View style={{flexDirection:'row',marginTop:10}}>   
-        <RadioButton value="cash" color='#195581'  />
-        <Text style={{color:value=='cash'?'#195581' :'#9B9B9B' ,fontSize:20,marginTop:3}}>PAIEMENT CASH</Text>
+        <RadioButton value="PAIEMENT CASH" color='#195581'  />
+        <Text style={{color:value=='PAIEMENT CASH'?'#195581' :'#9B9B9B' ,fontSize:20,marginTop:3}}>PAIEMENT CASH</Text>
       </View>
-      
     </RadioButton.Group>
     </View>
 

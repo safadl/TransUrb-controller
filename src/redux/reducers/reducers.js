@@ -1,6 +1,6 @@
 import {CHANGE_NAME,CHANGE_TYPEAB,CHANGE_ATTESTATION,CHANGE_DATE,
   CHANGE_ETAB,CHANGE_IDENTIF,CHANGE_LOCATION,
-  CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL} from '../actions/actions';
+  CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL,CHANGE_METHOD,CHANGE_REF} from '../actions/actions';
 
 const initialState={
   name:"John",
@@ -13,7 +13,9 @@ const initialState={
   location:"",
   photo:null,
   tel:"",
-  email:""
+  email:"",
+  method:"PAIEMENT MOBILE",
+  ref:""
 };
 
 export const mainReducer=(state=initialState,action)=>{
@@ -40,6 +42,10 @@ switch (action.type) {
     return {...state,attest:action.attest}
   case CHANGE_LOCATION:
     return {...state,location:action.location}
+    case CHANGE_METHOD:
+      return {...state,method:action.method}
+      case CHANGE_REF:
+        return {...state,ref:action.ref}
 
   default:
     return state
