@@ -9,8 +9,11 @@ target 'Transurb' do
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
-
+  pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+  'BarcodeDetectorMLKit'
+]
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'TransurbTests' do
     inherit! :complete
