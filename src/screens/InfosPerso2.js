@@ -1,47 +1,61 @@
 import React, { Component, useState } from 'react';
  import {Alert,Text,Image,View, Dimensions,ScrollView, ImageBackground,Button,TouchableOpacity,StatusBar,TextInput, Platform,StyleSheet} from 'react-native'
  //import styles from '../styles/component_styles/styles';
- import IonIcons from 'react-native-vector-icons/Ionicons';
- import LinearGradient from 'react-native-linear-gradient';
- import PhoneInput from 'react-native-phone-input'
  import {Picker} from '@react-native-community/picker';
  import ImagePicker from 'react-native-image-picker';
- import Upload from 'react-native-background-upload'
  import {useSelector,useDispatch} from 'react-redux'
  import { change_attestation,change_photo,change_typeab,change_etab,change_identif } from '../redux/actions/actionCreators';
+ import DocumentPicker from 'react-native-document-picker';
 
 
  function InfosPerso2({navigation}){
   const data=useSelector((state)=>state);
   const dispatch=useDispatch()
   const {name,surname,date,typeab,location,photo,tel,email,etab,identif,attest}=data;
-  const [myphoto,setPhoto]=useState('')
-      // state = {
-      //   avatarSource: null,
-      //   videoSource: null,
-      //   uploadId: null,
-      //   typeab:'Carte Moki',
-      //   etabl:'',
-      //   photo:'',
-      //   attest:'',
-      //   identif:'Carnet de liaison',
-      //   fileName:'',
-         
+  const [file,setFile]=useState('');
+  const [doc,setDoc] =useState('')
+  const [myphoto,setPhoto]=useState('');
+     
+     selectOneFile =async ()=> {
+        //Opening Document Picker for selection of one file
+        try {
 
-
-      // };
+          const res = await DocumentPicker.pick({
+            type: [DocumentPicker.types.allFiles],
+            //There can me more options as well
+            // DocumentPicker.types.allFiles
+            // DocumentPicker.types.images
+            // DocumentPicker.types.plainText
+            // DocumentPicker.types.audio
+            // DocumentPicker.types.pdf
+          });
+          //Printing the log realted to the file
+          console.log('res : ' + JSON.stringify(res));
+          console.log('URI : ' + res.uri);
+          console.log('Type : ' + res.type);
+          console.log('File Name : ' + res.name);
+          console.log('File Size : ' + res.size);
+          //Setting the state to show single file attributes
+          setFile(res)
+          dispatch(change_attestation(res.name))
+        } catch (err) {
+          //Handling any exception (If any)
+          if (DocumentPicker.isCancel(err)) {
+            //If user canceled the document selection
+            alert("Aucun fichier n'a été sélectionné");
+          } else {
+            //For Unknown Error
+            alert('Unknown Error: ' + JSON.stringify(err));
+            throw err;
+          }
+        }
+      }
     
-      // constructor(props) {
-      //   super(props);
-    
-      //   this.selectPhotoTapped = this.selectPhotoTapped.bind(this);
-      // }
-
      checkTextInput = () => {
         //Check for the Name TextInput
         if (typeab==""||etab==""||identif==""||photo==""||attest=="") {
       
-            Alert.alert('Erreur','Veuillez remplir tous les champs obligatoires',[ {
+            Alert.alert('Alerte','Veuillez remplir tous les champs obligatoires',[ {
             text: 'Close',
             onPress: () => console.log('Cancel Pressed'),
             style: 'Ok',
@@ -51,7 +65,7 @@ import React, { Component, useState } from 'react';
           {cancelable: true},);
         }
         else {
-            this.props.navigation.navigate('Infos3')
+        navigation.navigate('Infos3')
 
         }
    
@@ -110,6 +124,9 @@ import React, { Component, useState } from 'react';
         console.log('Upload started')
         Upload.addListener('progress', uploadId, (data) => {
           console.log(`Progress: ${data.progress}%`)
+          
+          
+
         })
         Upload.addListener('error', uploadId, (data) => {
           console.log(`Error: ${data.error}%`)
@@ -120,6 +137,9 @@ import React, { Component, useState } from 'react';
         Upload.addListener('completed', uploadId, (data) => {
           // data includes responseCode: number and responseBody: Object
           console.log('Completed!')
+          
+
+
         })
       }).catch((err) => {
         console.log('Upload error!', err)
@@ -127,7 +147,9 @@ import React, { Component, useState } from 'react';
       Platform.select({
         ios: () => 'file://' + image.path,
         android: () => image.path.replace('file://', '')
+        
         })
+
      }
 
       selectPhotoTapped=()=> {
@@ -167,8 +189,6 @@ import React, { Component, useState } from 'react';
     }
 
 
-
-
 return(
     <ScrollView style={{backgroundColor:'white'}} > 
       <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:500,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
@@ -197,7 +217,7 @@ return(
        </View>
        <View style={{margin:15,marginTop:5}}>
       <Text style={{color:'#195581', fontSize:20}}>Établissement scolaire <Text style={{color:'#2BA7FF', fontSize:18}}>*</Text></Text>
-           <TextInput value={etab} onChangeText={(value)=>dispatch(change_etab(value))} clearButtonMode={"always"} blurOnSubmit={true} require={true} style={{marginTop:15,width:Dimensions.get('window').width*0.69, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5}} placeholder='Entrer votre prénom'/>
+           <TextInput value={etab} onChangeText={(value)=>dispatch(change_etab(value))} clearButtonMode={"always"} blurOnSubmit={true} require={true} style={{marginTop:15,width:Dimensions.get('window').width*0.69, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5}} placeholder='Entrer le nom de votre établissement'/>
        </View>
 
 
@@ -220,15 +240,25 @@ return(
 
            <View style={{margin:15,marginTop:5}}>
 
-           <Text style={{color:'#195581', fontSize:20}}>Attestation de scolarité <Text style={{color:'#2BA7FF', fontSize:18}}>*</Text></Text>
+           <Text style={{color:'#195581', fontSize:20}}>Attestation de scolarité <Text style={{color:'#2BA7FF', fontSize:18}}>*</Text></Text>      
+<View>
+<TouchableOpacity  onPress={selectOneFile} style={{alignItems:'center',flexDirection:'row',marginTop:15,width:Dimensions.get('window').width*0.69, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5,height:50}} >
+<View style={{margin:2}}>
+<Text numberOfLines={2} style={{color:'black',fontSize:12,marginLeft:7}}>{file.name? 'Nom: ' : ' '} {file.name ?file.name : ''}</Text>
+<Text numberOfLines={2} style={{color:'black',fontSize:12,marginLeft:7}}>{file.type? 'Type: ' : ' '}{file.type}</Text>
+<Text numberOfLines={2} style={{color:'black',fontSize:12,marginLeft:7}}>{file.size? 'Taille : ' : ' '}{file.size? file.size : ''}{file.size? 'KB' : ''}</Text>
 
-           <TouchableOpacity style={{justifyContent:'center',alignItems:'center',flexDirection:'row',marginTop:15,width:Dimensions.get('window').width*0.69, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5,height:50}} >
-{/* <Icon.Button style={styles.icon} backgroundColor='transparent'  size={24} color="#195581" name="image" onPress={this.selectPhotoTapped.bind(this)} /> */}
-{/*  add this !!!! onPress={()=>this.selectFile} */}
-<TouchableOpacity  >
-<Image source={require('../assets/images/file.png')} style={{width:30,height:30, marginLeft:Dimensions.get('window').width*0.60}}/>
+</View>
+
+{/* add this!! onPress={this.selectPhotoTapped.bind(this)}  */} 
+<TouchableOpacity   onPress={selectOneFile} >
+<Image source={require('../assets/images/file.png')} style={{width:30,height:30, marginLeft:Dimensions.get('window').width*0.56}}/>
+{/* <Text style={{color:'red',fontSize:15}}>{photo}</Text> */}
 </TouchableOpacity>
-</TouchableOpacity>      
+
+</TouchableOpacity>
+</View>
+
      </View>
      
 
@@ -249,7 +279,7 @@ return(
 </Picker>
        </View>
        {/* add this !!! onPress={this.checkTextInput} */}
-       <TouchableOpacity onPress={()=>navigation.navigate('Donnees')} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
+       <TouchableOpacity onPress={()=>checkTextInput()} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
         <Text style={{fontSize:30,alignSelf:'center',color:'white'}}>Continuer</Text>
        </TouchableOpacity>
        </ScrollView>

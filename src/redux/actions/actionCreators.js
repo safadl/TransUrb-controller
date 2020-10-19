@@ -56,3 +56,7 @@ export const change_ref=(value)=>({
     type:CHANGE_REF,
     ref:value
 })
+export const change_id=(value)=>({
+    type:CHANGE_ID,
+    id:value
+})

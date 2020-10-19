@@ -1,10 +1,5 @@
 import React, { Component, useState } from 'react';
  import {Text,Image,View, Dimensions,ScrollView, ImageBackground,Button,TouchableOpacity,StatusBar,TextInput, Platform,Alert,StyleSheet} from 'react-native'
- import IonIcons from 'react-native-vector-icons/Ionicons';
- import LinearGradient from 'react-native-linear-gradient';
- import PhoneInput from 'react-native-phone-input'
- import DatePicker from 'react-native-datepicker'
- import ViewOverflow from 'react-native-view-overflow';
  import {Modal, Portal, Provider} from 'react-native-paper';
  import {useSelector,useDispatch} from 'react-redux'
 

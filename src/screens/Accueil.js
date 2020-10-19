@@ -29,7 +29,7 @@ return(
      <TouchableOpacity onPress={()=>navigation.navigate('Infos1')} style={{justifyContent:'center',backgroundColor:'#0C3C5F',margin:20,borderRadius:8,height:80,width:Dimensions.get('screen').width*0.75}} >
         <Text style={{textAlign:'center',fontSize:20,margin:20,height:30,color:'white'}}>SOUSCRIRE UNE CARTE</Text>
      </TouchableOpacity>
-     <TouchableOpacity style={{justifyContent:'center',backgroundColor:'#168F62',margin:20,borderRadius:8,height:80,width:Dimensions.get('screen').width*0.75}} onPress={()=>{console.log('kjh')}}>
+     <TouchableOpacity onPress={()=>navigation.navigate('Donnees')}  style={{justifyContent:'center',backgroundColor:'#168F62',margin:20,borderRadius:8,height:80,width:Dimensions.get('screen').width*0.75}} >
       <Text style={{textAlign:'center',fontSize:20,margin:20,height:30,color:'white'}}>SOUIVI DE LA SOUSCRIPTION</Text>
      </TouchableOpacity>
      </View>

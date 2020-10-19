@@ -11,7 +11,7 @@ import React, { Component, useState } from 'react';
 
 // import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { change_method } from '../redux/actions/actionCreators';
+import { change_method,change_id } from '../redux/actions/actionCreators';
 
 
 
@@ -27,7 +27,7 @@ function InfosPerso3({navigation}){
      const [visibleM, setMVisible] = React.useState(false);
      const data=useSelector((state)=>state);
      const dispatch=useDispatch()
-     const {method}=data;
+     const {method,id}=data;
   const showModal = () => setVisible(true);
   const showIModal = () => setIsVisible(true);
   const showModalM = () => setMVisible(true);
@@ -89,7 +89,7 @@ return(
   
   </Card>
   
-       <TextInput  style={{alignSelf:'center',marginTop:15,width:Dimensions.get('window').width*0.72, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
+       <TextInput onValueChange={value => dispatch(change_id(value))} value={id}  style={{alignSelf:'center',marginTop:15,width:Dimensions.get('window').width*0.72, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
 
        <TouchableOpacity onPress={showModal} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
         <Text style={{fontSize:30,alignSelf:'center',color:'white'}}>Confirmer</Text>

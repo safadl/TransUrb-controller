@@ -20,20 +20,10 @@ import NonVald from '../screens/NonVald'
 import Attente from '../screens/Attente';
 import Pret from '../screens/Pret';
 const stack=createStackNavigator();
-// const stacck=createStackNavigator()
-// function myStack(){
-//     return(
-//         <stacck.Navigator  screenOptions={{headerShown:false, headerMode:"screen"}}>
-//           <stacck.Screen 
-// name="connexion" component={connexion}/> 
-//         </stacck.Navigator> 
-//     )
-
-// }
 
 function GlobalStack({navigation}){
     return(
-        <stack.Navigator initialRouteName="ajoutRef" screenOptions={{
+        <stack.Navigator initialRouteName="Accueil" screenOptions={{
  headerShown:false,
     headerStyle: {
       backgroundColor: "transparent"

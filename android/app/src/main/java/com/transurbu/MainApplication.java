@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import io.github.elyx0.reactnativedocumentpicker.DocumentPickerPackage;
 import com.entria.views.RNViewOverflowPackage;
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 import com.vydia.RNUploader.UploaderReactPackage;
