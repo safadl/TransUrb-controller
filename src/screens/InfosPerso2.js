@@ -53,7 +53,7 @@ import React, { Component, useState } from 'react';
     
      checkTextInput = () => {
         //Check for the Name TextInput
-        if (typeab==""||etab==""||identif==""||photo==""||attest=="") {
+        if (etab==""||photo==null||attest=="") {
       
             Alert.alert('Alerte','Veuillez remplir tous les champs obligatoires',[ {
             text: 'Close',
@@ -279,7 +279,7 @@ return(
 </Picker>
        </View>
        {/* add this !!! onPress={this.checkTextInput} */}
-       <TouchableOpacity onPress={()=>checkTextInput()} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
+       <TouchableOpacity onPress={checkTextInput} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
         <Text style={{fontSize:30,alignSelf:'center',color:'white'}}>Continuer</Text>
        </TouchableOpacity>
        </ScrollView>
