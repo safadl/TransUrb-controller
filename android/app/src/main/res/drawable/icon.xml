@@ -8,7 +8,7 @@
     <item
         android:width="716dp"
         android:height="202dp"
-     android:top="550dp"
+       
      
         android:drawable="@mipmap/transurb"
         android:gravity="center"

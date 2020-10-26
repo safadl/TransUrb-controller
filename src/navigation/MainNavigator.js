@@ -16,23 +16,14 @@ import NonCUser from '../screens/NonCUSER'
 import ProblemDetect from '../screens/ProblemDetect';
 import History from '../screens/History'
 const stack=createStackNavigator();
-// const stacck=createStackNavigator()
-// function myStack(){
-//     return(
-//         <stacck.Navigator  screenOptions={{headerShown:false, headerMode:"screen"}}>
-//           <stacck.Screen 
-// name="connexion" component={connexion}/> 
-//         </stacck.Navigator> 
-//     )
 
-// }
 
 function GlobalStack({navigation}){
     return(
-        <stack.Navigator initialRouteName="connexion" screenOptions={{
+        <stack.Navigator initialRouteName="expireduser" screenOptions={{
             headerTintColor: 'white',  
           }}>
-             <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+             <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -45,7 +36,7 @@ function GlobalStack({navigation}){
         />, headerTitle:'John Doe'}}
                name="ProblemDetect" component={ProblemDetect}/> 
                
-               <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -57,7 +48,7 @@ function GlobalStack({navigation}){
           end={{x: 1, y: 0}}
         />, headerTitle:'John Doe'}}
                name="History" component={History}/> 
-              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -69,7 +60,7 @@ function GlobalStack({navigation}){
           end={{x: 1, y: 0}}
         />, headerTitle:'John Doe'}}
                name="NonCUser" component={NonCUser}/> 
-              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -81,7 +72,7 @@ function GlobalStack({navigation}){
           end={{x: 1, y: 0}}
         />, headerTitle:'John Doe'}}
                name="expireduser" component={ExpiredUser}/>
-              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{navigation.navigate('connexion')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -96,7 +87,7 @@ function GlobalStack({navigation}){
               <stack.Screen   options={{headerShown:false, headerMode:"screen"}}
                 name="connexion" component={Connexion}/> 
 
-              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>{console.log('hi')}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+              <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={()=>navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
                <HeaderBackButton
                     {...props}
                    
@@ -111,7 +102,7 @@ function GlobalStack({navigation}){
 
 
             <stack.Screen  
-          options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+          options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons style={{paddingRight:10}} onPress={navigation.navigate('connexion')} name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
             <HeaderBackButton
                  {...props}
                  

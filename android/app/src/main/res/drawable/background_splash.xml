@@ -9,7 +9,7 @@
         android:width="420dp"
         android:height="300dp"
         android:drawable="@mipmap/launch_screen"
-        android:gravity="bottom|center" 
+        android:gravity="bottom|center"
         />
 
 

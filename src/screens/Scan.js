@@ -32,25 +32,25 @@ class Scan extends React.Component{
            
             console.log("values")     
           }
-
+// function used automatically when detecting codes
     onSuccess = (e) => {
    
       // Linking.openURL(e.data)
       if(e.data!==null){
       alert("Scanned code value is : " + e.data+ "Barcode type is" + e.type)
        if(e.type=='QR_CODE'){
-        this._storeData(e)
+        this._storeData(e) //store qrcodes in qrcodes storage
 
        }
        else {
-         this._storeBar(e)
+         this._storeBar(e)  //store barcodes in barcodes storage
        }
       }
       else{
         alert('Unable to scan ')
       }
       };
-
+  // function to store the detected barcodes in a storage named "barcodes"
       _storeBar = async (e) => {
         try{
      
@@ -80,7 +80,7 @@ class Scan extends React.Component{
     
         }}
 
-
+// flip camera when clicked
       changeCamera=()=>{
         if(this.state.Mycamera==='back')
       this.setState({
@@ -93,7 +93,7 @@ class Scan extends React.Component{
       }
         }
 
-
+// function used in camera
       makeSlideOutTranslation(translationType, fromValue) {
         return {
           from: {
@@ -105,7 +105,8 @@ class Scan extends React.Component{
         };
       }
 
-      
+      // function to store the detected qrcodes in a storage named "qrcodes"
+  
       _storeData = async (e) => {
         try{
         

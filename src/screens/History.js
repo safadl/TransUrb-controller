@@ -16,7 +16,7 @@ class History extends Component {
           };
        
         }
-       
+     // function DidMount happens when the component is mounted , here we load existing data n our storage  
     componentDidMount() {
 
 const { navigation } = this.props;
@@ -28,7 +28,7 @@ this.onLoad2()
 });
   }
 
-
+//get existing qrcodes from its storage
   onLoad1=async ()=>{
     try {
      
@@ -45,6 +45,7 @@ this.onLoad2()
   }
 
   }
+  //get existing barcodes from its storage
   onLoad2=async()=>{
 
     try {
@@ -58,7 +59,7 @@ this.onLoad2()
   }
 }
 
-///// clear function  
+///// clear function  to remove all the data
 removeEverything = async () => {
   try {
     await AsyncStorage.clear()
@@ -70,7 +71,7 @@ removeEverything = async () => {
   
 }
   
-
+//function to delete specific data (when we click on delete next to an item) ; specific to qrcodes
 async remove_data(id)  {
   try {
     this.state.Mydata.splice(id, 1);
@@ -81,6 +82,8 @@ async remove_data(id)  {
     console.log(error);
   }
 };
+//function to delete specific data (when we click on delete next to an item) ; specific to barcodes
+
 async remove_barcode(id)  {
   try {
     this.state.Mydatabar.splice(id, 1);
@@ -91,6 +94,7 @@ async remove_barcode(id)  {
     console.log(error);
   }
 };
+//render qrcodes
   _renderItem = ({ item,index }) => (
   
 console.log("my item is : "+item+" index: "+index),
@@ -113,6 +117,7 @@ Supprimer
     </ScrollView>
    
   );
+  // render barcodes
   _renderItem2 = ({ item,index }) => (
    
     <ScrollView
@@ -133,6 +138,7 @@ Supprimer
     </ScrollView>
     
   );
+  //items separator
   renderSeparator = () => (
     <View
       style={{
@@ -141,6 +147,7 @@ Supprimer
       }}
     />
   );
+  //function to redirect us to a website when we click on Link icon next to qrcodes
   OpenLink= (Mylink) => {
 
     Linking.openURL(Mylink).catch(err =>
@@ -149,6 +156,7 @@ Supprimer
   )
 
 };
+//check if list is empty
 listEmpty=()=>{
   if(this.state.Mydata!==null&&this.state.Mydatabar!==null) 
    return(

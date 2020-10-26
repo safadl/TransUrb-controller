@@ -12,7 +12,6 @@ class User extends React.Component{
         }
         }
     render(){
-        const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
         return(
    <ScrollView style={{backgroundColor:'white'}}>
