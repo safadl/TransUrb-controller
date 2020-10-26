@@ -11,7 +11,7 @@ class ExpiredUser extends React.Component{
    <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{alignItems:'center',justifyContent:'center',flex:1}}>
               <View style={{}}>         
 
-     <ImageBackground source={require('../assets/images/backgroundExpired.png')} style={{width:Dimensions.get('window').width*0.9,height:Dimensions.get('window').height*0.7,marginTop:70}} >
+     <ImageBackground source={require('../assets/images/backgroundExpired.png')} style={{width:Dimensions.get('window').width*0.9,height:Dimensions.get('window').height*0.6,marginTop:70}} >
      <View style={{justifyContent:'center',alignItems:'center',margin:4}}>
      <Image source={require('../assets/images/warning.png')} style={{resizeMode:'contain',width:80}}/>
      <Text style={{color:'#EF1401',fontSize:30,marginTop:40}}>Abonnement expiré</Text>
