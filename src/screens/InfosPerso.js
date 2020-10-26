@@ -76,7 +76,8 @@ return(
        </View>
        <View style={{margin:15,marginTop:5}}>
       <Text style={{color:'#195581', fontSize:20}}>Email</Text>
-           <TextInput onSubmitEditing={(e) => checkEmail(e)} ref={(input) => {ThirdTextInput = input; }}returnKeyType = {"next"} value={email} onChangeText={(value)=>dispatch(change_email(value))} clearButtonMode={"always"} blurOnSubmit={true} require={true} style={{marginTop:15,width:Dimensions.get('window').width*0.69,height:Dimensions.get('window').height*0.085, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5}} placeholder='Entrer votre email'/>
+      {/* onSubmitEditing={(e) => checkEmail(e)}  */}
+           <TextInput ref={(input) => {ThirdTextInput = input; }}returnKeyType = {"next"} value={email} onChangeText={(value)=>dispatch(change_email(value))} clearButtonMode={"always"} blurOnSubmit={true} require={true} style={{marginTop:15,width:Dimensions.get('window').width*0.69,height:Dimensions.get('window').height*0.085, borderColor:'#1778BD',borderWidth:0.8,borderRadius:5}} placeholder='Entrer votre email'/>
        </View>
        <View style={{margin:15,marginTop:5}}>
       <Text  style={{color:'#195581', fontSize:20}}>N° de téléphone<Text style={{color:'#2BA7FF', fontSize:18}}>*</Text></Text>
