@@ -132,7 +132,7 @@ return(
       </View>
        <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center',width:Dimensions.get('window').width*0.85,height:Dimensions.get('window').height*0.85,justifyContent:'center'}}>
            <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center'}}>Veuillez confirmer ou modifier
-vos données.</Text>
+           vos données.</Text>
               
         <View style={{flexDirection:'row',alignSelf:'center',alignItems:'center'}}>
         {/* onPress={navigation.navigate('Infos1')} */}
