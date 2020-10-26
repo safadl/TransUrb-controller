@@ -8,10 +8,10 @@ import React, { Component, useState } from 'react';
  function Accueil({navigation}){
    const   changeFont=(Swidth)=>{
       if(Swidth>400)
-      return 35
-      else if(Swidth>250)
       return 25
-      else return 18
+      else if(Swidth>250)
+      return 20
+      else return 17
    }
 return(
     <ScrollView contentContainerStyle={{alignItems:'center',flex:1,justifyContent:'center',}}>
