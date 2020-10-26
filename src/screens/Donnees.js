@@ -16,14 +16,14 @@ return(
 
     <ScrollView style={{backgroundColor:'white'}} > 
 
-      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:500,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
+      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:Dimensions.get('window').height*0.65,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
        <TouchableOpacity onPress={()=>navigation.goBack()}>
       <Image source={require('../assets/images/back.png')} style={{width:30,marginLeft:20,marginTop:30,resizeMode:'contain'}}/>
       </TouchableOpacity>
        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true}/>
      
- <Text style={{alignSelf:'center', fontSize:20,color:'white',marginTop:100}}>Données abonnements</Text>
- 
+ <Text style={{alignSelf:'center', fontSize:20,color:'white',marginTop:50}}>Données abonnements</Text>
+
 <View
     style={{
       alignItems: 'center',
@@ -32,7 +32,7 @@ return(
       width: 100,
       height: 100,
       alignSelf:'center',
-      marginTop:230,
+      marginTop:165,
       marginVertical:100,
       borderRadius: 50 ,
       backgroundColor: 'white',
@@ -46,83 +46,82 @@ return(
       borderWidth:1
     }}
   >
-    {/* put profile image here  */}
-    {/* require('../assets/images/picture.png') */}
+
     <Image  source={photo} style={{borderRadius:50,width:99,height:99,resizeMode:'cover'}}/>
   </View>
       
        
-       <ScrollView style={{zIndex:1,alignSelf:'center',marginTop:80,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,height:Dimensions.get('window').height*1.05,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
+       <ScrollView style={{zIndex:1,alignSelf:'center',marginTop:60,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,height:Dimensions.get('window').height*1.1,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
   
       <ScrollView style={{marginTop:50}} >
         
       <View style={{alignSelf:'center'}}>
-  <Text style={{color:'#195581',textAlign:'center'}}>{name} {surname}</Text>
-  <Text style={{color:'#168F62',textAlign:'center'}}>Etudiant</Text>
+      <Text style={{color:'#195581',textAlign:'center'}}>{name} {surname}</Text>
+      <Text style={{color:'#168F62',textAlign:'center'}}>Etudiant</Text>
   </View>
        
        <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Type d’abonnement</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
 
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{typeab}</Text>
       </View>
      </View>
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Email</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{email}</Text>
       </View>
      </View>
 
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>N° de téléphone</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{tel}</Text>
       </View>
      </View>
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Date de naissance</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{date}</Text>
       </View>
      </View>
 
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Lieu de résidence</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{location}</Text>
       </View>
      </View>
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>établissement scolaire</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{etab}</Text>
       </View>
      </View>  
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Identification</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{identif}</Text>
       </View>
      </View> 
      <View style={{margin:15}}>
       <Text style={{color:'#195581', fontSize:15}}>Attestation de scolarité</Text>
-      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:50,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
+      <View style={{justifyContent:'center',marginTop:10,backgroundColor:'white',width:Dimensions.get('window').width*0.7,height:Dimensions.get('window').height*0.09,shadowColor:'#1778BD',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15,borderRadius:3}}>
       <Text style={{margin:5,color:'#195581',fontSize:18}}>{attest}</Text>
       </View>
      </View> 
 
-       <TouchableOpacity onPress={showModal} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,height:70,resizeMode:'contain',borderRadius:8}}>
+       <TouchableOpacity onPress={showModal} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,height:Dimensions.get('window').height*0.12,resizeMode:'contain',width:Dimensions.get('window').width*0.74,borderRadius:8}}>
         <Text style={{fontSize:30,alignSelf:'center',color:'white'}}>Confirmer</Text>
        </TouchableOpacity>
 
        </ScrollView>
        {/* <Image  source={require('../assets/images/user.png')} style={{width:100,height:100,borderRadius:50,alignSelf:'center',top:10,position:'absolute'}}/> */}
         </ScrollView>
+       
 
       </ImageBackground>
-      
       <Provider >
     
     <Portal>
@@ -140,7 +139,7 @@ vos données.</Text>
        <TouchableOpacity onPress={()=>navigation.navigate('Infos1')}s style={{margin:10,borderColor:'#168F62',borderWidth:2,width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
          <Text style={{color:'#168F62',alignSelf:'center',fontSize:18,fontWeight:'bold'}}>Modifier</Text>
        </TouchableOpacity>
-       <TouchableOpacity onPress={()=>navigation.navigate('Infos3')} style={{padding:5,margin:10,backgroundColor:'#168F62',width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
+       <TouchableOpacity onPress={()=>navigation.navigate('NonVald')} style={{padding:5,margin:10,backgroundColor:'#168F62',width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
          <Text style={{color:'white',alignSelf:'center',fontSize:18,fontWeight:'bold'}}>Valider</Text>
        </TouchableOpacity>
        </View> 

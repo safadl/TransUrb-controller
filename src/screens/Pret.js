@@ -1,30 +1,25 @@
 import React, { Component, useState } from 'react';
  import {Text,Image,View, Dimensions,ScrollView, ImageBackground,Button,TouchableOpacity,StatusBar,TextInput, Platform,Alert,StyleSheet} from 'react-native'
- import IonIcons from 'react-native-vector-icons/Ionicons';
- import LinearGradient from 'react-native-linear-gradient';
- import PhoneInput from 'react-native-phone-input'
- import DatePicker from 'react-native-datepicker'
- import ViewOverflow from 'react-native-view-overflow';
- import {Modal, Portal, Provider} from 'react-native-paper';
+ import {useSelector,useDispatch} from 'react-redux'
+
 
  function Pret({navigation}){
-  const [value, setValue] = React.useState('');
-  const [ref, setRef] = React.useState(false);
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
 
+  const data=useSelector((state)=>state);
+  const dispatch=useDispatch()
+  const {photo}=data;
 return(
 
 
     <ScrollView style={{backgroundColor:'white'}} > 
 
-      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:500,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
+      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:Dimensions.get('window').height*0.65,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
       <TouchableOpacity onPress={()=>navigation.goBack()}>
       <Image source={require('../assets/images/back.png')} style={{width:30,marginLeft:20,marginTop:30,resizeMode:'contain'}}/>
       </TouchableOpacity>
        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true}/>
        
- <Text style={{alignSelf:'center', fontSize:20,color:'white',marginTop:100}}>Données abonnements</Text>
+ <Text style={{alignSelf:'center', fontSize:20,color:'white',marginTop:50}}>Données abonnements</Text>
 <View
     style={{
       alignItems: 'center',
@@ -33,7 +28,7 @@ return(
       width: 100,
       height: 100,
       alignSelf:'center',
-      marginTop:230,
+      marginTop:165,
       marginVertical:100,
       borderRadius: 50 ,
       backgroundColor: 'white',
@@ -48,10 +43,10 @@ return(
     }}
   >
     {/* put profile image here  */}
-    <Image  source={require('../assets/images/picture.png')} style={{borderRadius:50,width:99,resizeMode:'contain'}}/>
+    {photo==null?<Image  source={require('../assets/images/picture.png')} style={{borderRadius:50,width:99,resizeMode:'contain'}} /> : photo}
   </View>
  
-       <ScrollView style={{zIndex:1,alignSelf:'center',marginTop:80,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,height:Dimensions.get('window').height*1.05,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
+       <ScrollView style={{zIndex:1,alignSelf:'center',marginTop:80,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
   
       <ScrollView style={{marginTop:50}} >
           <View style={{alignSelf:'center'}}>

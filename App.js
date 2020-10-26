@@ -7,6 +7,7 @@ import {
   View,
   Text,
   StatusBar,
+  LogBox
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/navigation/DrawerNavigator';
@@ -18,6 +19,7 @@ import {store} from './src/redux/store/store'
 // import StackNav from './src/components/StackNav';
 const App= ()=> {
 
+LogBox.ignoreAllLogs(true)
 useEffect(()=>{
 SplashScreen.hide()
 })

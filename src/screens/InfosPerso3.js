@@ -41,7 +41,7 @@ function InfosPerso3({navigation}){
 return(
     <ScrollView style={{backgroundColor:'white'}} > 
         
-      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:500,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
+      <ImageBackground imageStyle={{width:Dimensions.get('window').width,height:Dimensions.get('window').height*0.65,resizeMode:'stretch'}} style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}} source={require('../assets/images/backa.png')}>
       <TouchableOpacity onPress={()=>navigation.goBack()}>
       <Image source={require('../assets/images/back.png')} style={{width:30,marginLeft:20,marginTop:30,resizeMode:'contain'}}/>
       </TouchableOpacity>
@@ -49,7 +49,7 @@ return(
        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true}/>
        <Text style={{alignSelf:'center', fontSize:20,color:'white',marginTop:100,marginTop:50}}>Méthode de paiement</Text>
        <Text style={{alignSelf:'center',flexDirection:'row',marginTop:20}}><Text style={{fontSize:35,fontWeight:'bold',textAlign:'center',color:'white'}}>03</Text><Text  style={{fontSize:25,color:'rgba(255, 255, 255, 0.5)'}}>/03</Text></Text>
-       <ScrollView style={{alignSelf:'center',marginTop:100,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,height:Dimensions.get('window').height*0.9,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
+       <ScrollView style={{alignSelf:'center',marginTop:20,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
        <View style={{marginTop:30}}>
         <Text style={{fontSize:20,color:'#0C3C5F',textAlign:'center'}}>
             Sélectionnez 
@@ -89,9 +89,9 @@ return(
   
   </Card>
   
-       <TextInput onValueChange={value => dispatch(change_id(value))} value={id}  style={{alignSelf:'center',marginTop:15,width:Dimensions.get('window').width*0.72, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
+       <TextInput onValueChange={value => dispatch(change_id(value))} value={id}  style={{alignSelf:'center',marginTop:15,width:Dimensions.get('window').width*0.72,height:Dimensions.get('window').height*0.07, borderColor:'rgba(23,120,189,0.3)',borderWidth:0.8,borderRadius:2}}/>
 
-       <TouchableOpacity onPress={showModal} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:70,resizeMode:'contain',borderRadius:8}}>
+       <TouchableOpacity onPress={showModal} style={{backgroundColor:'#168F62',justifyContent:'center', margin:10,marginTop:50,height:Dimensions.get('window').height*0.1,width:Dimensions.get('window').width*0.75,resizeMode:'contain',borderRadius:8}}>
         <Text style={{fontSize:30,alignSelf:'center',color:'white'}}>Confirmer</Text>
        </TouchableOpacity>
 
@@ -103,13 +103,13 @@ return(
       <Provider >
     <Portal >
         
-      <Modal visible={visible} onDismiss={hideModal} style={{backgroundColor:'red'}} contentContainerStyle={{alignSelf:'center',borderRadius:30}}>
+      <Modal visible={visible} onDismiss={hideModal} style={{backgroundColor:'red'}} contentContainerStyle={{alignSelf:'center',borderRadius:30,alignSelf:'center'}}>
  
       <View style={{marginBottom:-50,justifyContent:'center',backgroundColor:'#fff',width:120,height:100,borderRadius:30,alignSelf:'center',shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
         <Image style={{alignSelf:'center',resizeMode:'contain',width:120,height:50}} source={require('../assets/images/transurb.png')}/>
       </View>
-       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:350,height:500, justifyContent:'center'}}>
-           <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center'}}>Vous avez choisi l’abonnement annuelle
+       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:Dimensions.get('window').width*0.85,height:Dimensions.get('window').height*0.85, justifyContent:'center'}}>
+           <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',marginTop:40}}>Vous avez choisi l’abonnement annuelle
                  gratuit avec un cout de construction
                <Text style={{fontWeight:'bold'}}> de 50 euro.</Text> </Text>
                <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',fontSize:18}}>Merci de continuer les procédures
@@ -136,7 +136,7 @@ return(
       <View style={{marginBottom:-50,justifyContent:'center',backgroundColor:'#fff',width:120,height:100,borderRadius:30,alignSelf:'center',shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
         <Image style={{alignSelf:'center',resizeMode:'contain',width:120,height:50}} source={require('../assets/images/check.png')}/>
       </View>
-       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:350,height:500, justifyContent:'center'}}>
+       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:Dimensions.get('window').width*0.85,height:Dimensions.get('window').height*0.85,justifyContent:'center'}}>
            <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',fontWeight:'bold',fontSize:30}}>
              Confirmation
                 </Text>
@@ -145,7 +145,7 @@ return(
               Pour confirmer le paiement</Text>
 
 <TextInput
-      style={{marginTop:20,width:300, height: 50, borderColor: '#1778BD', borderWidth: 1,opacity:0.5,alignSelf:'center'}}  
+      style={{marginTop:20,width:Dimensions.get('window').width*0.7, height: 50, borderColor: '#1778BD', borderWidth: 1,opacity:0.5,alignSelf:'center'}}  
       onChange={text => onChangeValue(text)}
     />
         
@@ -166,8 +166,8 @@ return(
       <View style={{marginBottom:-50,justifyContent:'center',backgroundColor:'#fff',width:120,height:100,borderRadius:30,alignSelf:'center',shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
         <Image style={{alignSelf:'center',resizeMode:'contain',width:120,height:50}} source={require('../assets/images/check.png')}/>
       </View>
-       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:350,height:500, justifyContent:'center'}}>
-           <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',fontWeight:'bold',fontSize:30}}>
+       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:Dimensions.get('window').width*0.85,height:Dimensions.get('window').height*0.85, justifyContent:'center'}}>
+           <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',fontWeight:'bold',fontSize:30,marginTop:45}}>
              Merci
                 </Text>
                <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center',fontSize:21,fontWeight:'bold'}}>
@@ -175,7 +175,7 @@ return(
               </Text>
 <Text style={{margin:5,marginTop:15,textAlign:'center',color:'#195581',alignSelf:'center',fontSize:21,fontWeight:'bold'}}>Voila votre code ID</Text>
         <Text style={{margin:5,marginTop:15,textAlign:'center',color:'#195581',alignSelf:'center',fontSize:21}}>Liberville...</Text>
-        <TouchableOpacity onPress={showModalM} style={{backgroundColor:'#168F62',width:220,height:50,borderRadius:6,justifyContent:'center',alignSelf:'center',marginTop:100}}>
+        <TouchableOpacity onPress={showModalM} style={{backgroundColor:'#168F62',width:220,height:50,borderRadius:6,justifyContent:'center',alignSelf:'center',marginTop:70}}>
          <Text style={{color:'white',alignSelf:'center',fontSize:25,fontWeight:'bold'}}>OK</Text>
        </TouchableOpacity>
        </View> 

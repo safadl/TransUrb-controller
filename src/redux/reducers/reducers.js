@@ -3,8 +3,8 @@ import {CHANGE_NAME,CHANGE_TYPEAB,CHANGE_ATTESTATION,CHANGE_DATE,
   CHANGE_PHOTO,CHANGE_SURNAME,CHANGE_TEL,CHANGE_EMAIL,CHANGE_METHOD,CHANGE_REF} from '../actions/actions';
 
 const initialState={
-  name:"John",
-  surname:"Doe",
+  name:"",
+  surname:"",
   typeab:"Carte MOKI",
   attest:"",
   date:"21-09-2020",
