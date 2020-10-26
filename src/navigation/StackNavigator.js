@@ -1,42 +1,172 @@
 import React, { Component } from 'react';
-import {Text,View} from 'react-native';
-import  {Button} from 'react-native-paper';
-import {createStackNavigator}  from '@react-navigation/stack'
-import styles from '../styles/component_styles/styles';
+import {createStackNavigator,HeaderBackButton} from '@react-navigation/stack'
+import LinearGradient from 'react-native-linear-gradient';
+import Accueil from '../screens/Accueil';
+import InfosPerso from '../screens/InfosPerso'
+import InfosPerso2 from '../screens/InfosPerso2'
+import InfosPerso3 from '../screens/InfosPerso3';
+import Donnees from '../screens/Donnees';
+import AjoutRef from '../screens/AjoutRef';
+import NonVald from '../screens/NonVald'
+import Attente from '../screens/Attente';
+import Pret from '../screens/Pret';
 
-const Stack= createStackNavigator()
+const stack= createStackNavigator()
 
-function Screen1({navigation}){
-    return(
-        <View style={{justifyContent:'center', flex:1, alignItems:'center'}}>
-        <Text>First Screen</Text>
-        <Button  mode="contained" style={{width:300}}onPress={()=>navigation.navigate('Second Screen')} >Go to second screen</Button>
-        </View>
-    )
-}
-
-function Screen2({navigation}){
-    return(
-        <View style={{justifyContent:'center', flex:1, alignItems:'center'}}>
-        <Text>Second Screen</Text>
-        <Button  mode="contained" style={{marginTop:10, width:300, alignSelf:'center'}}onPress={()=>navigation.goBack()} >Go back to first screen</Button>
-        <Button  mode="contained" style={{marginTop:10, width:300, alignSelf:'center'}}onPress={()=>navigation.push('Second Screen')} >Go to Second screen..again</Button>
-        </View>
-    )
-}
-
-export default function StackNavigator(){
-    return(
-        <Stack.Navigator initialRouteName={Screen1}>
-            <Stack.Screen name='First screen' component={Screen1}  options={{
-              headerTitle: props => <Text>Screen 1</Text>,
-              
-            }}/>
-             <Stack.Screen name='Second Screen' component={Screen2}  options={{
-              headerTitle: props => <Text>Screen 2</Text>,
+    export default function StackNavigator({navigation}){
+        return(
+            <stack.Navigator initialRouteName="Accueil" screenOptions={{
+     headerShown:false,
+        headerStyle: {
+          backgroundColor: "transparent"
+        }
+      ,
+      headerLayoutPreset: "center",
+    
+      headerBackground: <LinearGradient
+      colors={['#566EA4', '#0C3C5F']}
+      style={{ flex: 1}}
+      start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+      end={{x: 1, y: 0}}
+    />,
+    
+                headerTintColor: 'white',  
+              }}>
+    
+                <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="accueil" component={Accueil}/>
+    
+                <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Pret" component={Pret}/> 
+     
+    
+    
+    
+    
+    
+                 <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Attente" component={Attente}/> 
+                 <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="NonVald" component={NonVald}/> 
+                <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="ajoutRef" component={AjoutRef}/> 
+    
+      <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Donnees" component={Donnees}/>          
+    
+    
+    <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Infos3" component={InfosPerso3}/>
+    
+    
+    
+    
+           <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackButton
+                        {...props}
+                       
+                />
+            
+                
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Infos1" component={InfosPerso}/>
+    
+               
+    
+    
+    
+    
+                <stack.Screen   options={{headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'}, headerLeft: (props) => (
+                   <HeaderBackfButton
+                        {...props}
+                       
+                />
+              ), headerBackground:()=> <LinearGradient
+              colors={['#566EA4', '#0C3C5F']}
+              style={{ flex: 1}}
+              start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+              end={{x: 1, y: 0}}
+            />, headerTitle:''}}
+                   name="Infos2" component={InfosPerso2}/>
            
-            }}/>
-        </Stack.Navigator>
-    )
-    }
-
+          
+             
+            </stack.Navigator>
+        )
+            }
+    

@@ -8,7 +8,7 @@ import React, { Component, useState } from 'react';
  function NonVald({navigation}){
   const data=useSelector((state)=>state);
   const dispatch=useDispatch()
-  const {photo,attest}=data;
+  const {photo,attest,name}=data;
   const [file,setFile]=useState('');
 
   selectOneFile =async ()=> {
@@ -80,14 +80,14 @@ return(
     }}
   >
     {/* put profile image here  */}
-   {photo==null?<Image  source={require('../assets/images/picture.png')} style={{borderRadius:50,width:99,resizeMode:'contain'}} /> : photo}
+   {photo==null?<Image  source={require('../assets/images/picture.png')} style={{borderRadius:50,width:99,resizeMode:'contain'}} /> : <Image  source={photo} style={{borderRadius:50,width:99,height:99,resizeMode:'cover'}} />}
   </View>
  
        <ScrollView style={{zIndex:1,alignSelf:'center',marginTop:80,marginBottom:20,backgroundColor:'white',width:Dimensions.get('window').width*0.8,height:Dimensions.get('window').height*1.05,shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
   
       <ScrollView style={{marginTop:50}} >
           <View style={{alignSelf:'center'}}>
-      <Text style={{color:'#195581',textAlign:'center'}}>John Doe</Text>
+      <Text style={{color:'#195581',textAlign:'center'}}>{name}</Text>
   <Text style={{color:'#168F62',textAlign:'center'}}>Etudiant</Text>
   </View>
   <View style={{flexDirection:'row',justifyContent:'center', alignItems:'center', padding:20}}>

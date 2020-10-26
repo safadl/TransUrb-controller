@@ -130,7 +130,7 @@ return(
       <View style={{marginBottom:-50,justifyContent:'center',backgroundColor:'#fff',width:120,height:100,borderRadius:30,alignSelf:'center',shadowColor:'grey',elevation:2,shadowOffset:{width:5,height:2},shadowOpacity:0.6,shadowRadius:15}}>
         <Image style={{alignSelf:'center',resizeMode:'contain',width:120,height:50}} source={require('../assets/images/transurb.png')}/>
       </View>
-       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center', width:350,height:500, justifyContent:'center'}}>
+       <View style={{borderRadius:30,backgroundColor:'#fff',justifyContent:'center',alignContent:'center',width:Dimensions.get('window').width*0.85,height:Dimensions.get('window').height*0.85,justifyContent:'center'}}>
            <Text style={{margin:5,textAlign:'center',color:'#195581',alignSelf:'center'}}>Veuillez confirmer ou modifier
 vos données.</Text>
               
@@ -139,7 +139,7 @@ vos données.</Text>
        <TouchableOpacity onPress={()=>navigation.navigate('Infos1')}s style={{margin:10,borderColor:'#168F62',borderWidth:2,width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
          <Text style={{color:'#168F62',alignSelf:'center',fontSize:18,fontWeight:'bold'}}>Modifier</Text>
        </TouchableOpacity>
-       <TouchableOpacity onPress={()=>navigation.navigate('NonVald')} style={{padding:5,margin:10,backgroundColor:'#168F62',width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
+       <TouchableOpacity onPress={()=>navigation.navigate('Infos3')} style={{padding:5,margin:10,backgroundColor:'#168F62',width:130,height:50,borderRadius:3,justifyContent:'center',alignSelf:'center',marginTop:100}}>
          <Text style={{color:'white',alignSelf:'center',fontSize:18,fontWeight:'bold'}}>Valider</Text>
        </TouchableOpacity>
        </View> 
