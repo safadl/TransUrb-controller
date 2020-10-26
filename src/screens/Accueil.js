@@ -6,6 +6,13 @@ import React, { Component, useState } from 'react';
 
 
  function Accueil({navigation}){
+   const   changeFont=(Swidth)=>{
+      if(Swidth>400)
+      return 35
+      else if(Swidth>250)
+      return 25
+      else return 18
+   }
 return(
     <ScrollView contentContainerStyle={{alignItems:'center',flex:1,justifyContent:'center',}}>
    <View >
@@ -14,7 +21,7 @@ return(
       <TouchableOpacity onPress={()=>navigation.navigate('Scan')} style={{width:"80%",alignItems:'center',flexDirection:'row',justifyContent:'center', marginTop:40,height:90,marginBottom:30, borderRadius:8, backgroundColor:"#168F62"}} >
      
         <IonIcons name="scan" size={30} style={{marginRight:5}} color='white' />
-        <Text style={{alignSelf:'center',fontSize:25,color:'white'}} >SCANNER LA CARTE</Text>
+        <Text adjustsFontSizeToFit  style={{alignSelf:'center',fontSize: changeFont(Dimensions.get('screen').width ),color:'white'}} >SCANNER LA CARTE</Text>
      
      </TouchableOpacity>
       </ScrollView>
