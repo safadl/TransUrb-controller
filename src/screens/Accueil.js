@@ -15,6 +15,7 @@ import React, { Component, useState } from 'react';
    }
 return(
     <ScrollView contentContainerStyle={{alignItems:'center',flex:1,justifyContent:'center',}}>
+        
    <View >
       <Image style={{width:Dimensions.get('window').width*0.6,height:Dimensions.get('window').height*0.2, resizeMode:'contain'}} source={require('../assets/images/qr.png')} />
       </View>

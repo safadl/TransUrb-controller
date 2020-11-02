@@ -1,42 +1,131 @@
-import React, { Component } from 'react';
-import {Text,View} from 'react-native';
-import  {Button} from 'react-native-paper';
-import {createStackNavigator}  from '@react-navigation/stack'
-import styles from '../styles/component_styles/styles';
+import React from 'react';
 
-const Stack= createStackNavigator()
-
-function Screen1({navigation}){
-    return(
-        <View style={{justifyContent:'center', flex:1, alignItems:'center'}}>
-        <Text>First Screen</Text>
-        <Button  mode="contained" style={{width:300}}onPress={()=>navigation.navigate('Second Screen')} >Go to second screen</Button>
-        </View>
-    )
+import {createStackNavigator,HeaderBackButton} from '@react-navigation/stack'
+import Scan from '../screens/Scan';
+import IonIcons from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
+import Connexion from '../screens/Connexion'
+import Accueil from '../screens/Accueil';
+import User from '../screens/User'
+import ExpiredUser from '../screens/ExpiredUser'
+import NonCUser from '../screens/NonCUSER'
+import ProblemDetect from '../screens/ProblemDetect';
+import History from '../screens/History'
+const stack= createStackNavigator()
+const stack2=createStackNavigator();
+function Mystack(){
+  <stack2.Navigator>
+    <stack2.Screen name="connexion" component={Connexion}/>
+  </stack2.Navigator>
 }
+ export default function StackNavigator({navigation}){
 
-function Screen2({navigation}){
     return(
-        <View style={{justifyContent:'center', flex:1, alignItems:'center'}}>
-        <Text>Second Screen</Text>
-        <Button  mode="contained" style={{marginTop:10, width:300, alignSelf:'center'}}onPress={()=>navigation.goBack()} >Go back to first screen</Button>
-        <Button  mode="contained" style={{marginTop:10, width:300, alignSelf:'center'}}onPress={()=>navigation.push('Second Screen')} >Go to Second screen..again</Button>
-        </View>
-    )
-}
+        <stack.Navigator initialRouteName="connexion" screenOptions={{
+            headerTintColor: 'white',  
+          }}>
+             <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
+               name="ProblemDetect" component={ProblemDetect}/> 
+               
+               <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
+               name="History" component={History}/> 
+              <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
+               name="NonCUser" component={NonCUser}/> 
+              <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
 
-export default function StackNavigator(){
-    return(
-        <Stack.Navigator initialRouteName={Screen1}>
-            <Stack.Screen name='First screen' component={Screen1}  options={{
-              headerTitle: props => <Text>Screen 1</Text>,
-              
-            }}/>
-             <Stack.Screen name='Second Screen' component={Screen2}  options={{
-              headerTitle: props => <Text>Screen 2</Text>,
+
+               name="expireduser" component={ExpiredUser}/>
+              <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
+               name="user" component={User}/>
+              <stack.Screen   options={{headerShown:false, headerMode:"screen"}}
+                name="connexion" component={Connexion}/> 
+
+              <stack.Screen   options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>( <IonIcons onPress={()=>navigation.navigate('connexion')}  style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+               <HeaderBackButton
+                    {...props}
+                   
+            />
            
-            }}/>
-        </Stack.Navigator>
+          ), headerBackground:()=> <LinearGradient
+          colors={['#566EA4', '#0C3C5F']}
+          style={{ flex: 1}}
+          start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+          end={{x: 1, y: 0}}
+        />, headerTitle:'John Doe'})}
+               name="accueil" component={Accueil}/>
+
+        <stack.Screen name="stack2" component="Mystack"/>
+
+
+            <stack.Screen  
+          options={({navigation})=>({headerStyle:{height:70},headerTitleStyle:{fontFamily:'Helvetica',alignSelf:'center'},headerRight:()=>(<IonIcons onPress={()=>navigation.navigate('connexion')} style={{paddingRight:10}}  name="exit-outline" size={26} color='white'/>), headerLeft: (props) => (
+            <HeaderBackButton
+                 {...props}
+                 
+         />
+       ), headerBackground:()=> <LinearGradient
+       colors={['#566EA4', '#0C3C5F']}
+       style={{ flex: 1}}
+       start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+       end={{x: 1, y: 0}}
+     />, headerTitle:'John Doe'})}
+            
+         
+            name="Scan" component={Scan}/>
+         
+        </stack.Navigator>
     )
-    }
+        }
+
+
 
